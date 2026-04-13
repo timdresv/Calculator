@@ -10,7 +10,12 @@ Console.WriteLine();
 while (true)
 {
     Console.Write("Введите первое число: ");
-    string input1 = Console.ReadLine();
+    string input1 = Console.ReadLine() ?? string.Empty;
+    if (string.IsNullOrWhiteSpace(input1))
+    {
+        Console.WriteLine("Ошибка: ввод не может быть пустым");
+        continue;
+    }
     if (input1 == EXIT_SYMBOL)
     {
         break;
@@ -22,8 +27,13 @@ while (true)
     }
 
     Console.Write("Введите второе число: ");
-    string input2 = Console.ReadLine();
-    if (input1 == EXIT_SYMBOL)
+    string input2 = Console.ReadLine() ?? string.Empty;
+    if (string.IsNullOrWhiteSpace(input2))
+    {
+        Console.WriteLine("Ошибка: ввод не может быть пустым");
+        continue;
+    }
+    if (input2 == EXIT_SYMBOL)
     {
         break;
     }
@@ -34,7 +44,12 @@ while (true)
     }
 
     Console.WriteLine("Выберите операцию (+, -, *, /): ");
-    string op = Console.ReadLine();
+    string op = Console.ReadLine() ?? string.Empty;
+    if (string.IsNullOrWhiteSpace(op))
+    {
+        Console.WriteLine("Ошибка: ввод не может быть пустым");
+        continue;
+    }
     if (op == EXIT_SYMBOL)
     {
         break;
